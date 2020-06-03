@@ -3,9 +3,9 @@ pipeline {
         DEPLOY = "${env.BRANCH_NAME == "master" || env.BRANCH_NAME == "develop" ? "true" : "false"}"
         NAME = "${env.BRANCH_NAME == "master" ? "example" : "example-staging"}"
         VERSION = readMavenPom().getVersion()
-        DOMAIN = 'localhost'
-        REGISTRY = 'davidcampos/k8s-jenkins-example'
-        REGISTRY_CREDENTIAL = 'dockerhub-davidcampos'
+        DOMAIN = 'localhost'        
+        REGISTRY = 'munishsatia/k8s-jenkins-example'
+        REGISTRY_CREDENTIAL = 'dockerhub-msatia'
     }
     agent {
         kubernetes {
