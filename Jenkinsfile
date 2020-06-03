@@ -5,7 +5,7 @@ pipeline {
         VERSION = readMavenPom().getVersion()
         DOMAIN = 'localhost'
         REGISTRY = 'davidcampos/k8s-jenkins-example'
-        REGISTRY_CREDENTIAL = 'dockerhub-davidcampos'
+        REGISTRY_CREDENTIAL = 'dockerhub-msatia'
     }
     agent {
         kubernetes {
