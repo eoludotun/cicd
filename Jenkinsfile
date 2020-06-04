@@ -26,13 +26,10 @@ pipeline {
                 container('argocdcli') {
                     //sh 'argocd version'
                     sh '''
+                    echo testing
                     
-                    
-                    withCredentials([string(credentialsId: 'argo-secret-token', variable: 'ARGOCD_AUTH_TOKEN')]) {
-                        
-                        echo 'testing'
-                        
-                    }'''
+                   
+                    '''
                    // sh "echo testing"
                 }
             }
