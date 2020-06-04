@@ -29,7 +29,7 @@ pipeline {
                     ARGOCD_SERVER="localhost"
                     APPNAME = "guestbook"
                     withCredentials([string(credentialsId: "argo-secret-token", variable: 'ARGOCD_AUTH_TOKEN')]) {
-                        ARGOCD_SERVER=$ARGOCD_SERVER argocd app sync $APPNAME
+                        ARGOCD_SERVER=$ARGOCD_SERVER argocd app sync APPNAME
                     }'''
                    // sh "echo testing"
                 }
