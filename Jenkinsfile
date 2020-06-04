@@ -26,7 +26,7 @@ pipeline {
                 container('argocdcli') {
                     //sh 'argocd version'
                     sh '''
-                    ARGOCD_SERVER="localhost"
+                    
                     
                     withCredentials([string(credentialsId: "argo-secret-token", variable: 'ARGOCD_AUTH_TOKEN')]) {
                         
