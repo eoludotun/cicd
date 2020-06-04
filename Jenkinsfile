@@ -24,7 +24,8 @@ pipeline {
          stage('Verify Argo') {
             steps {
                 container('argocdcli') {
-                    sh 'argocd version'
+                   // sh 'argocd version'
+                    sh "echo testing"
                 }
             }
         }
