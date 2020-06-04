@@ -24,12 +24,13 @@ pipeline {
          stage('Verify Argo') {
             steps {
                 container('argocdcli') {
-                    sh "argocd version"
+                    //sh 'argocd version'
+                    sh '''
                     ARGOCD_SERVER="localhost"
                     APPNAME = "guestbook"
                     withCredentials([string(credentialsId: "argo-secret-token", variable: 'ARGOCD_AUTH_TOKEN')]) {
                         ARGOCD_SERVER=$ARGOCD_SERVER argocd app sync $APPNAME
-                    }
+                    }'''
                    // sh "echo testing"
                 }
             }
