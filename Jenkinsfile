@@ -28,9 +28,9 @@ pipeline {
                     sh '''
                     
                     
-                    withCredentials([string(credentialsId: "argo-secret-token", variable: 'ARGOCD_AUTH_TOKEN')]) {
+                    withCredentials([string(credentialsId: 'argo-secret-token', variable: 'ARGOCD_AUTH_TOKEN')]) {
                         
-                        argocd app sync guestbook --force
+                        echo 'testing'
                         
                     }'''
                    // sh "echo testing"
