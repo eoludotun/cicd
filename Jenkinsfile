@@ -27,7 +27,7 @@ pipeline {
                     //sh 'argocd version'
                     sh '''
                     ARGOCD_SERVER="localhost"
-                    APP_NAME = "guestbook"
+                    APP_NAME = "helm-guestbook"
                     withCredentials([string(credentialsId: "argo-secret-token", variable: 'ARGOCD_AUTH_TOKEN')]) {
                         ARGOCD_SERVER=$ARGOCD_SERVER argocd app sync $APP_NAME --force
                     }'''
