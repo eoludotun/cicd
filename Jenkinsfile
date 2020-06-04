@@ -27,7 +27,7 @@ pipeline {
                     //sh 'argocd version'                   
                    withCredentials([string(credentialsId: 'argo-secret-token', variable: 'TOKEN')]) {
                     sh '''
-                     ARGOCD_SERVER="localhost"
+                     ARGOCD_SERVER="localhost:80"
                      APP_NAME="guestbook"
                      ARGOCD_SERVER=$ARGOCD_SERVER argocd app sync $APP_NAME --force
                     '''
