@@ -14,13 +14,14 @@ pipeline {
         }
     }
     stages {
+        /*
         stage('Build') {
             steps {
                 container('maven') {
                     sh 'mvn package'
                 }
             }
-        }
+        }*/
         stage('Docker Build') {
             when {
                 environment name: 'DEPLOY', value: 'true'
@@ -28,6 +29,14 @@ pipeline {
             steps {
                 container('docker') {
                     sh "docker build -t ${REGISTRY}:${VERSION} ."
+                }
+            }
+        }
+        stage('Verify Argo') {
+            steps {
+                container('argocdcli') {
+                  sh "argocd version"
+                    }
                 }
             }
         }
