@@ -25,6 +25,13 @@ pipeline {
             steps {
                 container('argocdcli') {
                     //sh 'argocd version'
+                   withCredentials([usernameColonPassword(credentialsId: 'argo-secret-token', variable: 'USERPASS')]) {
+                    sh '''
+                    
+                     ARGOCD_SERVER=$ARGOCD_SERVER argocd app sync $APP_NAME --force
+                    '''
+                    }
+                    
                     sh '''
                     echo testing
                     
