@@ -28,7 +28,9 @@ spec:
         - cat
       tty: true
     - name: argocdcli
-      image: argoproj/argocli     
+      image: argoproj/argocd:latest
+      command:
+        - cat
       tty: true
   volumes:
     - name: dockersock
