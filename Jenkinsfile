@@ -24,8 +24,8 @@ pipeline {
          stage('Verify Argo') {
             steps {
                 container('argocdcli') {
-                    //sh 'argocd version'
-                   withCredentials([usernameColonPassword(credentialsId: 'argo-secret-token', variable: 'USERPASS')]) {
+                    //sh 'argocd version'                   
+                   withCredentials([string(credentialsId: 'argo-secret-token', variable: 'TOKEN')]) {
                     sh '''
                      ARGOCD_SERVER="localhost"
                      APP_NAME="guestbook"
