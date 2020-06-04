@@ -29,7 +29,9 @@ pipeline {
                     sh '''
                      ARGOCD_SERVER="10.111.102.184"
                      APP_NAME="guestbook"
-                     ARGOCD_SERVER=$ARGOCD_SERVER argocd --grpc-web app sync $APP_NAME --force
+                     #ARGOCD_SERVER=$ARGOCD_SERVER argocd --grpc-web app sync $APP_NAME --force
+                    ARGOCD_SERVER=$ARGOCD_SERVER  argocd app sync $APP_NAME --local
+                     
                     '''
                     }
                     
