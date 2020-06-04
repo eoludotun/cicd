@@ -14,10 +14,17 @@ pipeline {
         }
     }
     stages {
-        stage('Build') {
+       /* stage('Build') {
             steps {
                 container('maven') {
                     sh 'mvn package'
+                }
+            }
+        }*/
+         stage('Verify Argo') {
+            steps {
+                container('argocdcli') {
+                    sh 'argocd version'
                 }
             }
         }
