@@ -27,11 +27,11 @@ pipeline {
                     //sh 'argocd version'                   
                    withCredentials([string(credentialsId: 'argo-secret-token', variable: 'TOKEN')]) {
                     sh '''
-                     #ARGOCD_SERVER="10.111.102.184"
-                     ARGOCD_SERVER="localhost"
+                     ARGOCD_SERVER="10.111.102.184"
+                     #ARGOCD_SERVER="localhost"
                      export ARGOCD_OPTS='--port-forward-namespace argocd'
                      APP_NAME="guestbook"
-                     ARGOCD_SERVER=$ARGOCD_SERVER argocd app sync $APP_NAME --force
+                     ARGOCD_SERVER=$ARGOCD_SERVER argocd app sync $APP_NAME --force --insecure
                      
                      
                     '''
