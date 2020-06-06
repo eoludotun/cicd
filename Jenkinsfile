@@ -31,9 +31,7 @@ pipeline {
                      #ARGOCD_SERVER="localhost"
                      export ARGOCD_OPTS='--port-forward-namespace argocd'
                      APP_NAME="guestbook"
-                     ARGOCD_SERVER=$ARGOCD_SERVER argocd app sync $APP_NAME --force --insecure
-                     
-                     
+                     ARGOCD_TOKEN=$TOKEN ARGOCD_SERVER=$ARGOCD_SERVER argocd app sync $APP_NAME --force --insecure
                     '''
                     }
                     
