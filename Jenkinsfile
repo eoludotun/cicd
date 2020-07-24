@@ -13,15 +13,7 @@ pipeline {
             yamlFile 'build.yaml'
         }
     }
-    stages {
-        /*
-        stage('Build') {
-            steps {
-                container('maven') {
-                    sh 'mvn package'
-                }
-            }
-        }*/
+
         stage('Docker Build') {
             when {
                 environment name: 'DEPLOY', value: 'true'
